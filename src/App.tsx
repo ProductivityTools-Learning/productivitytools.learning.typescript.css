@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import StyleComponent from "./Components/StyleComponent";
 import { ProductPage } from "./pages/ProductPage";
