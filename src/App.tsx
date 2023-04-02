@@ -1,12 +1,13 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
+import { Header } from "./Components/Header";
 import StyleComponent from "./Components/StyleComponent";
-import { ProductPage } from "./pages/ProductPage";
 
 function App() {
   return (
     <div className="App">
-      <StyleComponent />
-      <ProductPage></ProductPage>
+      <Header></Header>
+      <Outlet></Outlet>
     </div>
   );
 }

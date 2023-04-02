@@ -1,16 +1,28 @@
 import { Product, products } from "../data/products";
+import { useParams } from "react-router-dom";
+
+type Params = {
+  id: string;
+};
 
 export function ProductPage() {
+  const params = useParams<Params>();
+  const id = params.id === undefined ? undefined : parseInt(params.id);
+
+  const product = products.find((product) => product.id === id);
+
   return (
     <div className="text-center p-5">
       <h2 className="text-xl font-bolt text-slate-600">Hera are som great tools for React</h2>
-      <ul className="list-none m-0 p-0">
-        {products.map((product) => (
-          <li key={product.id} className="p-1 text-base text-slate-800">
-            {product.name}
-          </li>
-        ))}
-      </ul>
+
+      {product === undefined ? (
+        <div>Page not found</div>
+      ) : (
+        <div>
+          <h1>{product.name}</h1>
+          <h1>{product.description}</h1>
+        </div>
+      )}
     </div>
   );
 }
